@@ -4,15 +4,18 @@ import { Kards, Graph, CountrySelector } from './components';
 import styles from './App.module.css';
 import { fetchData } from './api';
 //Use class when about to use async for multiples functions is easier
+//import image from './images/image.png';
+
 class App extends React.Component {
   state = {
-   data: {},   
+   data: {}, 
+   country: '',  
   }
 
     async componentDidMount() {
-      const fetchData = await fetchData();
+      const data = await fetchData();
       
-      this.setState({ data: fetchData});
+      this.setState({ data });
     }    
 
     render() {
