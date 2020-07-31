@@ -5,19 +5,24 @@ import styles from './App.module.css';
 import { fetchData } from './api';
 //Use class when about to use async for multiples functions is easier
 class App extends React.Component {
+  state = {
+   data: {},   
+  }
 
     async componentDidMount() {
-      const data = await fetchData();
+      const fetchData = await fetchData();
       
-      console.log(data);
+      this.setState({ data: fetchData});
     }    
-    
+
     render() {
+        const { data } = this.state;
+
     return (
       <div className={styles.container}>
-        <Kards />
-        <CountrySelector />
-        <Graph />  
+        <Kards data={ data } />
+        <CountrySelector data={ data } />
+        <Graph data={ data } />  
      </div>
         )
     }
