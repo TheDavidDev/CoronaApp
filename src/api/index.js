@@ -4,9 +4,11 @@ const url = 'https://covid19.mathdro.id/api';
 
 export const fetchData = async () => {
   try {
-    const response = await axios.get(url);
+    const { data: { confirmed, recovered, deaths ,lastUpdate } } = await axios.get(url);
+    // much easier way: data.confirmed,
+    // not need it -> const newData = { confirmed, recovered, deaths, lastUpdate }
     
-     return response;
+    return { confirmed, recovered, deaths, lastUpdate };
     //is not gonna be need it we gonna export 2 (app.js) so we just ask for reponse console.log(response);
   } catch (error)  {
 
