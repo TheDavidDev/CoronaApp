@@ -1,0 +1,8 @@
+.Kard {
+    margin: 0 2% !important;
+  }
+  @media only screen and (max-width: 770px) {
+    .Kard {
+      margin: 2% 0 !important;
+    }
+  }

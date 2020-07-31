@@ -1,10 +1,10 @@
 import React from 'react';
 //(we import them much easier in one lane) import { render } from '@testing-library/react';
-import { Kards, Graph, CountrySelector } from './components';
-import styles from './App.module.css';
+import { Kards, CountrySelector, Graph } from './components';
 import { fetchData } from './api';
+import styles from './App.module.css';
 //Use class when about to use async for multiples functions is easier
-//import image from './images/image.png';
+import image from './images/image.png';
 
 class App extends React.Component {
   state = {
@@ -17,15 +17,21 @@ class App extends React.Component {
       
       this.setState({ data });
     }    
-    
+
+    handleCountryChange = async (country) => {
+      const data = await fetchData(country);
+
+      this.setState({ data, country: country });
+    }
+
     render() {
-        const { data } = this.state;
+        const { data, country } = this.state;
 
     return (
       <div className={styles.container}>
         <Kards data={ data } />
-        <CountrySelector data={ data } />
-        <Graph data={ data } />  
+        <CountrySelector handleCountryChange={this.handleCountryChange}/>
+        <Graph data={ data } country={country} />  
      </div>
         )
     }
