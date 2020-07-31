@@ -1,5 +1,8 @@
 .container {
-    margin: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 0;
   }
   
   .card {
@@ -7,13 +10,13 @@
   }
 
   .infected {
-    border-bottom: 10px solid rgba(115, 3, 171 );
+    border-bottom: 20px solid rgba(115, 3, 171 );
   }
   
   .recovered {
-    border-bottom: 10px solid rgb(11, 181, 11);
+    border-bottom: 20px solid rgb(11, 181, 11);
   }
   
   .deaths {
-    border-bottom: 10px solid rgba(255, 10, 10 );
+    border-bottom: 20px solid rgba(255, 10, 10 );
   } 

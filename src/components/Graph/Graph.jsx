@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { line, Bar } from 'react-chartjs-2'; //wrapper for the charts  but need to install chart.js as well
+
 import { fetchDailyData } from '../../api';
-import { line, Bar } from 'react-chatjs-2'; //wrapper for the charts  but need to install chart.js as well
 
-import stykes from './Graph.module.css';
+import styles from './Graph.module.css';
 
-const Graph = () => {
+const Graph = ({ data: { confirmed, recovered, deaths }, country }) => {
     const [dailyData, setDailyData] = useState({});
 
     useEffect(() => {
@@ -18,18 +19,18 @@ const Graph = () => {
     }, []);
     
     const lineChart = (
-        dailyData[0]
+        dailyData.length
         ? (
         <line
           data={{
-              labels: dailyData(({ date }) => date),
+              labels: dailyData.map(({ date }) => date),
               datasets: [{
-                  data: dailyData(({ confirmed}) => confirmed),
+                  data: dailyData.map(({ confirmed}) => confirmed),
                   label: 'Infections',
                   borderColor: '#3333ff',
                   fill: true,
               }, {
-                  data: dailyData(({ deaths }) => deaths),
+                  data: dailyData.map(({ deaths }) => deaths),
                   label: 'Decease',
                   borderColor: 'red',
                   backgroundColor: 'rgba(255, 10, 10 )',
@@ -39,8 +40,10 @@ const Graph = () => {
         />) : null
     );
     return (
-        <h1>Graph</h1>
+        <div className={styles.comtainer}>
+          {lineChart}
+        </div>
     )
-}
+};
 
 export default Graph;
