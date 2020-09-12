@@ -34,6 +34,7 @@ class App extends React.Component {
         <CountrySelector handleCountryChange={this.handleCountryChange}/>
         <Graph data={ data } country={country} />  
      </div>
+    )(
       <div className={classes.footer}>
           <Typography variant="body1" component="h2">
             Created by
