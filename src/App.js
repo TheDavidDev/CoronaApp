@@ -33,16 +33,8 @@ class App extends React.Component {
         <Kards data={ data } />
         <CountrySelector handleCountryChange={this.handleCountryChange}/>
         <Graph data={ data } country={country} />  
-     </div>
-    )(
-      <div className={classes.footer}>
-          <Typography variant="body1" component="h2">
-            Created by
-            <a className={classes.link} href="https://www.linkedin.com/in/TheDavidDev/"> The Dave Dev</a> 
-          </Typography>
-          <img className={classes.image} src={logo} height="50px" alt="TheDavidDev logo" />
-        </div>
-        )
+     </div>)
+
     }
 }
 export default App;
