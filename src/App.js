@@ -28,13 +28,16 @@ class App extends React.Component {
         const { data, country } = this.state;
 
     return (
+    <div>
       <div className={styles.container}>
         <img className={styles.image} src={image} alt="CORONA VIRUS" />
         <Kards data={ data } />
         <CountrySelector handleCountryChange={this.handleCountryChange}/>
         <Graph data={ data } country={country} />  
-     </div>
-        )
-    }
+     </div> 
+    </div>  
+  
+    )
+  };
 }
 export default App;
