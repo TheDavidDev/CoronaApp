@@ -34,10 +34,9 @@ class App extends React.Component {
         <Kards data={ data } />
         <CountrySelector handleCountryChange={this.handleCountryChange}/>
         <Graph data={ data } country={country} />  
-     </div> 
-    </div>  
-  
-    )
+     </div>
+     </div>
+     )
   };
 }
 export default App;
