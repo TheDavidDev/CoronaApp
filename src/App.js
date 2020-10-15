@@ -5,6 +5,7 @@ import { fetchData } from './api';
 import styles from './App.module.css';
 //Use class when about to use async for multiples functions is easier
 import image from './images/image.png';
+import Footer from './components/Footer/Footer';
 
 class App extends React.Component {
   state = {
@@ -34,6 +35,7 @@ class App extends React.Component {
         <Kards data={ data } />
         <CountrySelector handleCountryChange={this.handleCountryChange}/>
         <Graph data={ data } country={country} />  
+        <Footer/>
      </div>
      </div>
      )
