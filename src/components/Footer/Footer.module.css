@@ -1,8 +1,9 @@
-Footer {
-    background-color: rgb(255, 255, 255); 
-}
-.container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.Footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
 }
